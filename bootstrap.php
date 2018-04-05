@@ -113,7 +113,18 @@ function subscribe(Dispatcher $events)
                     ]
                 ]
             );
-
+             $event->configurator->MediaEmbed->add(
+                'sketchfab',
+                [
+                    'host'    => 'sketchfab.com',
+                    'extract' => "!sketchfab\\.com/models/(?'id'\\w+)!",
+                    'iframe'  => [
+                        'width'  => 640,
+                        'height' => 480,
+                        'src'    => 'https://sketchfab.com/models/{@id}/embed'
+                    ]
+                ]
+            );
              $event->configurator->MediaEmbed->add(
                 'mgtv',
                 [
